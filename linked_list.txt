@@ -1,0 +1,142 @@
+#include<stdio.h>
+#include<conio.h>
+void create();
+void beg();
+void mid();
+void end();
+void search();
+void delete();
+void display();
+struct node{
+	int data;
+	struct node *next;
+};
+struct node *start=NULL,*p,*q;
+
+void main()
+{
+	int ch,ch1;
+	clrscr();
+	do
+	{
+		printf("Select choice from following options.\n1.Create\n2.Insert\n3.Search\n4.Delete\n5.Display");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1: create();
+				break;
+
+			case 2: printf("Choose from following.\n2.1 Insert_AT_Beg\n2.2 Insert_AT_Mid\n2.3 Insert_AT_End");
+				printf("Enter your choice");
+				scanf("%d",ch1);
+				switch(ch1)
+				{
+					case 1: beg();
+						break;	
+
+					case 2: mid();
+						break;
+
+					case 3: end();
+						break;
+				}
+			case 3: serach();
+				break;
+
+			case 4: delete();
+				break;
+
+			case 5: display();
+				break;
+
+			case 6: exit();
+			
+			default: printf("Invalid choice");
+		}
+	}	
+	while(ch!=6)	
+}
+
+void create()
+{
+	struct node *np,*p;
+	np = (struct node*)mallac(size of(struct node));
+	np->next = NULL;
+	printf("Enter Data");
+	scanf("%d",&np->data);
+	if (start == NULL)
+		{
+			start = np;	
+		}
+	else
+		{
+			p = start; 	
+		}	
+	while(p->next!=NULL)
+		{
+			p = p->next;
+		}
+	p = p->next;
+}
+
+void beg()
+{
+	struct node *np,*p;
+	np = (struct node*)mallac(size of(struct node));
+	printf("Enter Data");
+	scanf("%d",&np->data);
+	np->next = start;
+	start = np;
+}
+
+void mid()
+{
+	struct node *np,*p;
+	np = (struct node*)mallac(size of(struct node));
+	printf("Enter Data");
+	scanf("%d",&np->data);
+	np->next = NULL;
+	printf("Enter value after which you want to insert");
+	scanf("%d",&x);
+	p = start;
+	while(p->next!=NULL&&p->data!=x)
+	{
+		p=p->next;
+	}
+	if(p==NULL)
+	{
+		printf("No such element");
+	}
+	else
+	{
+		np->next=p->next;
+		p->next=np;
+	}
+}
+
+void end()
+{
+	struch node *np,*p;
+	np = (struct node*)mallac(size of(struct node));
+	printf("Enter Data");
+	scanf("%d",&np->data);
+	p=start;
+	while(p->next!=NULL)
+	{
+		p=p->next;
+	}
+	p->next=np;
+	np->next=NULL;
+}
+
+void display()
+{
+	struch node *np,*p;
+	q = start;
+	while(q!=NULL)
+	{
+		printf("%d",q->data);
+		q=q->next;
+	}	
+}
+
